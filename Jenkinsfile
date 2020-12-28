@@ -1,7 +1,7 @@
 pipeline {
     agent { label 'Windows' }
     tools {
-        NodeJS
+        NodeJS '6.9.0'
     }
     stages {
         stage('Clone Repo') {
