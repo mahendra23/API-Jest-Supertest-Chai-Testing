@@ -1,17 +1,23 @@
 pipeline {
     agent { label 'Windows' }
-
+    tools {nodejs "node"}
     stages {
-        stage('Build') {
+        stage('Cloning Git') {
             steps {
-                echo 'install project'
+                git 'https://github.com/mahendra23/API-Jest-Supertest-Chai-Testing'
+            }
+        }
+        stage('Install dependencies') {
+            steps {
+                echo 'installing...'
+                sh 'cd'
                 sh 'npm install'    
             }
         }
 
         stage('Test') {
             steps {
-                echo 'install project'
+                echo 'Testing...'
                 sh 'npm test'
             }
         }
